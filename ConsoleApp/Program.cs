@@ -18,7 +18,7 @@ namespace ConsoleApp
                 ?? "mongodb+srv://java:java@cluster0.arus0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
             var db = new MongoClient(mongoConnectionString).GetDatabase("game");
             userRepo = new MongoUserRepository(db);
-            gameRepo = new InMemoryGameRepository();
+            gameRepo = new MongoGameRepository(db);
         }
 
         public static void Main(string[] args)
